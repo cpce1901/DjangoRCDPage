@@ -31,15 +31,14 @@
                         <!-- Enlaces -->
                         <div class="px-6 pt-32 flex flex-col md:flex-row md:items-center gap-3 md:p-0">
                             <a href="{% url 'public_app:home' %}"
-                                class="{% if request.path == 'inicio/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800  md:text-white  transition-all duration-300 ">Inicio</a>
+                                class="{% if request.path == '/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800  md:text-white  transition-all duration-300 ">Inicio</a>
                             <a href="{% url 'public_app:about' %}"
-                                class="{% if request.path == 'nosotros/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Nosotros</a>
+                                class="{% if request.path == '/nosotros/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Nosotros</a>
                             <a href="{% url 'public_app:services' %}"
-                                class="{% if request.path == 'servicios/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Servicios</a>
+                                class="{% if request.path == '/servicios/' %}md:font-bold{% else %}md:font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Servicios</a>
                             <a href="{% url 'public_app:contact' %}"
-                                class="{% if request.path == 'contacto/' %}md:font-bold{% else %}font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Contacto</a>
+                                class="{% if request.path == '/contacto/' %}md:font-bold{% else %}font-light hover:font-medium{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800 font-light md:text-white hover:font-medium transition-all duration-300 ">Contacto</a>
                         </div>
-                        
 
                         <!-- Boton -->
                         <div class="block md:hidden border-t py-8 px-6 md:border-t-0 md:py-0 md:pr-0 md:pl-6">
