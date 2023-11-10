@@ -1,0 +1,42 @@
+<!-- Hereda de plantilla principal -->
+{% extends 'public/base/base.html' %}
+
+<!-- Keywords para buscadores -->
+{% block tags %}
+<meta name="keywords" content="Electricista, Electricista a domicilio, Electricidad">
+{% endblock tags %}
+
+<!-- Descripcion para buscadores -->
+{% block description %}
+<meta name="description" content="Servicios electricos para Empresas - Oficinas - Personas. 
+Electricista a domicilio para asistencia técnica en terreno, reparaciones de cortes electricos,
+instalaciones y matenimiento electrico">
+{% endblock description %}
+
+<!-- Titulo de pagina -->
+{% block title %}
+404 - No encontrado
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="static bg-no-repeat bg-center bg-cover h-screen flex flex-col gap-5 items-center justify-center"
+    style="background-image: url({{ url_for('static', filename='img/electricidad.jpg') }});">
+
+    <!-- Page heading-->
+    <p class=" font-exo text-white text-6xl">Lo siento nada por este lugar....</p>
+    <h1 class="font-rale text-white text-9xl">404</h1>
+    <p class="font-exo text-white text-4xl">"Electricidad RCD spa"</p>
+    <p class="font-rale text-white text-2xl">"Soluciones y confianza"</p>
+    <p class="font-rale text-white text-2xl">Informaciones y Emergencias</p>
+
+    <p class="font-rale text-white text-2xl">Fono: +56 9 63044658</p>
+
+    <p class="font-rale text-white text-2xl">Servicios de electricidad para Industrias - oficinas y personas.</p>
+    <a href="{{ url_for('public.home')}}" class=" px-10 py-4 text-lg outline outline-1 outline-gray-100 text-gray-100 font-rale hover:outline-gray-600 hover:bg-gray-50 hover:text-black transition-all duration-300">Volver</a>
+</div> ">Volver</a>
+
+</div>
+
+{% endblock content %}
