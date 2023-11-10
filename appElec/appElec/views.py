@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
  
 def error_404_view(request, exception):  
-    return render(request, 'error/404.html')
+    return render(request, 'errors/404.html')
 
 
 @require_GET

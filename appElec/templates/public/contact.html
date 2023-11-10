@@ -1,0 +1,43 @@
+<!-- Hereda de plantilla principal -->
+{% extends 'public/base/base.html' %}
+
+<!-- Carga archivos estaticos -->
+{% load  static %}
+
+<!-- Keywords para buscadores -->
+{% block tags %}
+<meta name="keywords"
+    content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
+{% endblock tags %}
+
+<!-- Descripcion para buscadores -->
+{% block description %}
+<meta name="description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+{% endblock description %}
+
+<!-- Titulo de pagina -->
+{% block title %}
+Contacto-Electricidad RCD
+{% endblock title %}
+
+<!-- Contenido de pagina -->
+{% block content %}
+
+<body class="bg-white">
+    <!-- Icono whasApp -->
+    {% include 'public/base/whatsapp.html' %}
+    <!-- Header -->
+    {% include 'public/base/header.html' %}
+
+    <!-- Main -->
+    <main class="bg-white">
+
+        
+    </main>
+
+    <!-- Footer -->
+    {% include 'public/base/footer.html' %}
+
+</body>
+{% endblock content %}
