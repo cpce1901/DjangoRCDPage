@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block tags %}{% endblock tags %}
     {% block description %}{% endblock description %}
+    {% block og_tags %}{% endblock og_tags %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <link rel="icon" type="image/x-icon" href="{% static 'img/investigacion.png' %}" />
     <title>{% block title %}{% endblock title %}</title>
