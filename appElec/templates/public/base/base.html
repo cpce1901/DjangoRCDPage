@@ -13,7 +13,7 @@
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <link rel="icon" type="image/x-icon" href="{% static 'img/investigacion.png' %}" />
-    <title>{% block title %}{% endblock title %}</title>
+    {% block title %}{% endblock title %}
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 
     <!-- Google tag (gtag.js) -->
@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body class="bg-white">
     {% block content %}
 
     {% endblock content %}

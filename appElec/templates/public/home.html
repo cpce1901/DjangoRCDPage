@@ -6,190 +6,184 @@
 
 <!-- Keywords para buscadores -->
 {% block tags %}
-<meta name="keywords"
-    content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
+    <meta name="keywords" content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
 {% endblock tags %}
 
 <!-- Descripcion para buscadores -->
 {% block description %}
-<meta name="description"
-    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+    <meta name="description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
 {% endblock description %}
 
 <!-- SEO OG -->
 {% block og_tags %}
-<meta property="og:title" content="Electricidad RCD - Electricista a domicilio">
-<meta property="og:description"
-    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-<meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/investigacion.png">
+    <meta property="og:title" content="Electricidad RCD - Electricista a domicilio">
+    <meta property="og:description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+    <meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/investigacion.png">
 {% endblock og_tags %}
 
 <!-- Titulo de pagina -->
 {% block title %}
-Electricista a domicilio-Electricidad RCD
+    <title>Electricista a domicilio-Electricidad RCD</title>
 {% endblock title %}
 
 <!-- Contenido de pagina -->
 {% block content %}
+<!-- Icono whasApp -->
+{% include 'public/base/whatsapp.html' %}
+<!-- Header -->
+{% include 'public/base/header.html' %}
 
-<body class="bg-white">
-    <!-- Icono whasApp -->
-    {% include 'public/base/whatsapp.html' %}
-    <!-- Header -->
-    {% include 'public/base/header.html' %}
+<!-- Main -->
+<main class="bg-white">
 
-    <!-- Main -->
-    <main class="bg-white">
+    <!-- Seccion principal -->
+    <section
+        class="flex flex-col m-2 p-2 lg:m-4 bg-no-repeat bg-center bg-cover h-auto lg:h-[70vh] mb-8 md:items-center justify-center"
+        style="background-image: url('../../static/img/electricidad.jpg')">
+        <p class="font-exo font-semibold text-4xl xl:text-6xl text-white leading-snug mt-24">Servicios y
+            Emergencias Eléctricas
+            24 h.</p>
+        <h1 class="font-exo font-semibold text-xl xl:text-4xl text-white leading-snug my-5">Electricista a
+            domicilio</h1>
 
-        <!-- Seccion principal -->
-        <section
-            class="flex flex-col m-2 p-2 lg:m-4 bg-no-repeat bg-center bg-cover h-auto lg:h-[70vh] mb-8 md:items-center justify-center"
-            style="background-image: url('../../static/img/electricidad.jpg')">
-            <p class="font-exo font-semibold text-4xl xl:text-6xl text-white leading-snug mt-24">Servicios y
-                Emergencias Eléctricas
-                24 h.</p>
-            <h1 class="font-exo font-semibold text-xl xl:text-4xl text-white leading-snug my-5">Electricista a
-                domicilio</h1>
+        <div class="flex flex-col md:flex-row md:gap-3">
+            <h4 class="text-xl xl:text-xl font-extralight text-white">Vitacura</h4>
+            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+            <h4 class="text-xl xl:text-xl font-extralight text-white">Las Condes</h4>
+            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+            <h4 class="text-xl xl:text-xl font-extralight text-white">Chicureo</h4>
+            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+            <p class="text-xl xl:text-xl font-extralight text-white">Toda la Región Metropolitana a tu domicilio</p>
+        </div>
 
-            <div class="flex flex-col md:flex-row md:gap-3">
-                <h4 class="text-xl xl:text-xl font-extralight text-white">Vitacura</h4>
-                <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-                <h4 class="text-xl xl:text-xl font-extralight text-white">Las Condes</h4>
-                <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-                <h4 class="text-xl xl:text-xl font-extralight text-white">Chicureo</h4>
-                <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-                <p class="text-xl xl:text-xl font-extralight text-white">Toda la Región Metropolitana a tu domicilio</p>
+
+        <h2 class="font-exo text-xl xl:text-3xl font-extralight text-gray-100 mt-8">Servicio eléctrico profesional,
+            certificados y de calidad.</h2>
+
+        <p class="text-xl xl:text-3xl font-extralight text-white">Llámanos: <span class="font-medium">(+56) 9
+                63044658</span>
+        </p>
+
+        <a href="#" class="uppercase text-white lg:text-xl mb-7 mt-10">Contáctanos</a>
+    </section>
+
+    <!-- Seccion servicios -->
+
+    <section class="flex flex-col items-center justify-center mt-10 mx-2 lg:mx-0">
+
+        <div class="container lg:w-3/5 flex flex-col md:flex-wrap md:flex-row p-2 gap-3 md:justify-around">
+
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/ampolleta.png'%}" alt="Ampolleta" class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Sercios de Iluminación</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Instalación, cambio, reparación y
+                    mantenimiento de
+                    diferentes tipos de lámparas LED, incandescentes, tiras LED y
+                    mucho más en tu domicilio.</p>
             </div>
 
-
-            <h2 class="font-exo text-xl xl:text-3xl font-extralight text-gray-100 mt-8">Servicio eléctrico profesional,
-                certificados y de calidad.</h2>
-
-            <p class="text-xl xl:text-3xl font-extralight text-white">Llámanos: <span class="font-medium">(+56) 9
-                    63044658</span>
-            </p>
-
-            <a href="#" class="uppercase text-white lg:text-xl mb-7 mt-10">Contáctanos</a>
-        </section>
-
-        <!-- Seccion servicios -->
-
-        <section class="flex flex-col items-center justify-center mt-10 mx-2 lg:mx-0">
-
-            <div class="container lg:w-3/5 flex flex-col md:flex-wrap md:flex-row p-2 gap-3 md:justify-around">
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/ampolleta.png'%}" alt="Ampolleta" class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Sercios de Iluminación</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Instalación, cambio, reparación y
-                        mantenimiento de
-                        diferentes tipos de lámparas LED, incandescentes, tiras LED y
-                        mucho más en tu domicilio.</p>
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/cableado.png' %}" alt="Cableado" class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Inspección de cableado</h3>
                 </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/cableado.png' %}" alt="Cableado" class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Inspección de cableado</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Electricista a domicilio para revisión de
-                        sistemas eléctricos, reparación de
-                        cortes electricos, recableados de
-                        instalaciones eléctricas y tableros eléctricos.</p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/energia.png' %}" alt="Energía" class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Electricista emergencias</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Electricistas dispuestos a asistir a tu
-                        domicilio para solucionar sus
-                        problemas de urgencias eléctricas 24hrs disponibles..</p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/instalaciones.png' %}" alt="Instalaciones eléctricas"
-                            class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Instalaciones eléctricas</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Proyectos de instalaciones eléctricas e
-                        ingeniería eléctrica con certificación SEC TE-1, informe de verificación planos, sistemas de
-                        tierra y protección y normalización de instalaciones eléctricas.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/enchufes.png' %}" alt="Enchufes" class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Cambio de enchufes</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Instalación o cambio, mantenimiento de
-                        enchufes u/o tomacorrientes diferentes modelos y capacidades, Bticino, Marisio entre otros.</p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/mantenimiento.png' %}" alt="Mantenimiento" class="md:hidden lg:block">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Mantenimiento General</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Revisión y mantenimiento de tableros
-                        eléctricos, reemplazo de protecciones; automáticos y diferenciales, Barras de distribución y
-                        mucho
-                        más.</p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/electricboard.png' %}" alt="Tablero electrico"
-                            class="md:hidden lg:block w-[48px]">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Tableros eléctricos</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Armado e integración de tableros eléctricos,
-                        reparaciones y cambio de protecciones:
-                        Implmentación de tableros en departamentos, casas, oficinas e industria.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/automatization.png' %}" alt="automatización"
-                            class="md:hidden lg:block w-[48px]">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Electricidad Industrial</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">
-                        Asistencia en terreno e ingeniería para la industria en sistemas eléctricos y de control.
-                        automatización de maquinaria, reparaciones, desarrollo y cambio de sensores, sistemas SCADA,
-                        Monitoreo remoto, HMI y PLC.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
-                    <div class="flex items-center gap-3">
-                        <img src="{% static '/img/environment.png' %}" alt="Desarrollo e investigación"
-                            class="md:hidden lg:block w-[48px]">
-                        <h3 class="font-exo text-2xl font-light text-sky-700">Desarrollo e Investigación</h3>
-                    </div>
-                    <p class=" font-rale font-thin text-lg text-gray-900">Desarrollo e investigación de dispositivos
-                        electronicos, automatización, inteligencia y visión artificial, programación y desarrollo IOT.
-                    </p>
-                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Electricista a domicilio para revisión de
+                    sistemas eléctricos, reparación de
+                    cortes electricos, recableados de
+                    instalaciones eléctricas y tableros eléctricos.</p>
             </div>
 
-            <!-- Button call -->
-            <div class="text-center mt-16">
-                <a href="tel:+56963044658" title="Numero de contacto"
-                    class="px-10 py-4 text-lg outline outline-1 outline-sky-700 text-gray-600 font-rale hover:outline-gray-600 hover:bg-gray-50 hover:text-black transition-all duration-300">¡Llámenos!</a>
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/energia.png' %}" alt="Energía" class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Electricista emergencias</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Electricistas dispuestos a asistir a tu
+                    domicilio para solucionar sus
+                    problemas de urgencias eléctricas 24hrs disponibles..</p>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    {% include 'public/base/footer.html' %}
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/instalaciones.png' %}" alt="Instalaciones eléctricas"
+                        class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Instalaciones eléctricas</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Proyectos de instalaciones eléctricas e
+                    ingeniería eléctrica con certificación SEC TE-1, informe de verificación planos, sistemas de
+                    tierra y protección y normalización de instalaciones eléctricas.
+                </p>
+            </div>
 
-</body>
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/enchufes.png' %}" alt="Enchufes" class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Cambio de enchufes</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Instalación o cambio, mantenimiento de
+                    enchufes u/o tomacorrientes diferentes modelos y capacidades, Bticino, Marisio entre otros.</p>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/mantenimiento.png' %}" alt="Mantenimiento" class="md:hidden lg:block">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Mantenimiento General</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Revisión y mantenimiento de tableros
+                    eléctricos, reemplazo de protecciones; automáticos y diferenciales, Barras de distribución y
+                    mucho
+                    más.</p>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/electricboard.png' %}" alt="Tablero electrico"
+                        class="md:hidden lg:block w-[48px]">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Tableros eléctricos</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Armado e integración de tableros eléctricos,
+                    reparaciones y cambio de protecciones:
+                    Implmentación de tableros en departamentos, casas, oficinas e industria.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/automatization.png' %}" alt="automatización"
+                        class="md:hidden lg:block w-[48px]">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Electricidad Industrial</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">
+                    Asistencia en terreno e ingeniería para la industria en sistemas eléctricos y de control.
+                    automatización de maquinaria, reparaciones, desarrollo y cambio de sensores, sistemas SCADA,
+                    Monitoreo remoto, HMI y PLC.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-6 md:w-1/4 ">
+                <div class="flex items-center gap-3">
+                    <img src="{% static '/img/environment.png' %}" alt="Desarrollo e investigación"
+                        class="md:hidden lg:block w-[48px]">
+                    <h3 class="font-exo text-2xl font-light text-sky-700">Desarrollo e Investigación</h3>
+                </div>
+                <p class=" font-rale font-thin text-lg text-gray-900">Desarrollo e investigación de dispositivos
+                    electronicos, automatización, inteligencia y visión artificial, programación y desarrollo IOT.
+                </p>
+            </div>
+        </div>
+
+        <!-- Button call -->
+        <div class="text-center mt-16">
+            <a href="tel:+56963044658" title="Numero de contacto"
+                class="px-10 py-4 text-lg outline outline-1 outline-sky-700 text-gray-600 font-rale hover:outline-gray-600 hover:bg-gray-50 hover:text-black transition-all duration-300">¡Llámenos!</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+{% include 'public/base/footer.html' %}
+
 
 {% endblock content %}
