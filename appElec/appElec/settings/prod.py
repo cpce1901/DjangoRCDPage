@@ -1,8 +1,8 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['167.172.170.1', '*']
+ALLOWED_HOSTS = ['167.172.170.1', 'localhost', '127.0.0.1']
 
 DATABASES = {
     "default": {
