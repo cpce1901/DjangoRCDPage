@@ -13,8 +13,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.sitemaps",
-    'apps.public',
-    'apps.private',
+    "rest_framework",
+    "apps.public",
+    "apps.private",
 ]
 
 MIDDLEWARE = [
