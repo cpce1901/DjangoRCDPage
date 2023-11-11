@@ -4,26 +4,20 @@
 <!-- Carga archivos estaticos -->
 {% load static %}
 
-<!-- Keywords para buscadores -->
-{% block tags %}
-    <meta name="keywords" content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
-{% endblock tags %}
-
-<!-- Descripcion para buscadores -->
-{% block description %}
+<!-- SEO META -->
+{% block meta %}
     <meta name="description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-{% endblock description %}
-
-<!-- SEO OG -->
-{% block og_tags %}
-    <meta property="og:title" content="Electricidad RCD - Electricista a domicilio">
+    <meta name="keywords" content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">  
+    
+    <meta property="og:title" content="Electricidad RCD | Electricista a domicilio">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:site_name" content="Electricidad RCD">
     <meta property="og:description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-    <meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/investigacion.png">
-{% endblock og_tags %}
+{% endblock meta %}
 
 <!-- Titulo de pagina -->
 {% block title %}
-    <title>Electricista a domicilio-Electricidad RCD</title>
+    <title>Electricista a domicilio | Electricidad RCD</title>
 {% endblock title %}
 
 <!-- Contenido de pagina -->
