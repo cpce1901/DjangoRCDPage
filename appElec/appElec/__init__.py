@@ -1,6 +1,5 @@
 import pymysql
+from . import mqtt
 
-
-
-__all__ = ("celery_app",)
 pymysql.install_as_MySQLdb()
+mqtt.client.loop_start()

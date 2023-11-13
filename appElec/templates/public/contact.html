@@ -2,42 +2,131 @@
 {% extends 'public/base/base.html' %}
 
 <!-- Carga archivos estaticos -->
-{% load  static %}
+{% load static %}
 
-<!-- Keywords para buscadores -->
-{% block tags %}
-<meta name="keywords"
-    content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
-{% endblock tags %}
-
-<!-- Descripcion para buscadores -->
-{% block description %}
+<!-- SEO META -->
+{% block meta %}
 <meta name="description"
     content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-{% endblock description %}
+<meta name="keywords"
+    content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
+
+<meta property="og:title" content="Contacto | Electricista a domicilio | Electricidad RCD">
+<meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Electricidad RCD">
+<meta property="og:description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="electricidadrcd.cl">
+<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="Contacto | Electricista a domicilio | Electricidad RCD">
+<meta name="twitter:description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+<meta name="twitter:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
+{% endblock meta %}
 
 <!-- Titulo de pagina -->
 {% block title %}
-Contacto-Electricidad RCD
+<title>Contacto | Electricista a domicilio | Electricidad RCD</title>
 {% endblock title %}
 
 <!-- Contenido de pagina -->
 {% block content %}
+<!-- Icono whasApp -->
+{% include 'public/base/whatsapp.html' %}
+<!-- Header -->
+{% include 'public/base/header.html' %}
 
-<body class="bg-white">
-    <!-- Icono whasApp -->
-    {% include 'public/base/whatsapp.html' %}
-    <!-- Header -->
-    {% include 'public/base/header.html' %}
+<!-- Main -->
+<main class="bg-white">
 
-    <!-- Main -->
-    <main class="bg-white">
+    <!-- Seccion principal -->
+    <section
+        class="flex flex-col m-2 p-2 lg:m-4 bg-no-repeat bg-center bg-cover h-auto lg:h-[70vh] mb-8 md:items-center justify-center"
+        style="background-image: url('../../static/img/electricidadContacto.jpg')">
+        <h1 class="font-exo font-semibold text-4xl xl:text-6xl text-white leading-snug mt-24">Contacto</h1>
+        <div class="flex flex-col md:flex-row gap-2 my-5">
+            <p class="font-exo font-semibold text-xl xl:text-4xl text-white leading-snug">Servicios y
+                Emergencias</p>
+            <p class="font-exo font-semibold text-xl xl:text-4xl text-white leading-snug">Eléctricas
+                24 h.</p>
+        </div>
 
-        
-    </main>
+        <div class="flex flex-col md:flex-row md:gap-3">
+            <h4 class="text-xl xl:text-xl font-extralight text-white">Toda la Región Metropolitana a tu domicilio</h4>
+        </div>
 
-    <!-- Footer -->
-    {% include 'public/base/footer.html' %}
+        <h2 class="font-exo text-xl xl:text-3xl font-extralight text-gray-100 mt-8 mb-8">Servicio eléctrico profesional,
+            certificados y de calidad.</h2>
+    </section>
+
+    <!-- Seccion form -->
+    <section class="mt-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:justify-center gap-5">
+                <div class="flex flex-col items-end gap-6 mb-14 md:content-end">
+                    <h2 class="font-rale text-xl font-semibold text-gray-500">Llámanos</h2>
+                    <p class="font-exo text-4xl font-semibold text-sky-800">(+56) 9 63044658</p>
+                    <div class="flex flex-col items-end gap-2">
+                        <p class="font-rale text-lg font-semibold text-gray-500">Electricidad RCD SPA</p>
+                        <p class="font-rale text-lg font-semibold text-gray-500">Respeto y confianza</p>
+                        <p class="font-rale text-lg font-extralight text-gray-500">electricidad.rcd.spa@gmail.com</p>
+                    </div>
+                </div>
+                <div class="flex flex-col px-2 md:w-1/2 xl:w-1/3">
+                    <form method="post" class="flex flex-col gap-3">{% csrf_token %}
+    
+                        {% if 'ok' in request.GET %}
+    
+                        <p class="mt-4 font-exo text-xl text-green-600">Gracias por comunicarte con nosotros, pronto nos
+                            pondremos en contacto contigo.</p>
+    
+                        <a href="{% url 'public_app:home' %}"
+                            class="mt-8 px-10 py-4 text-center text-lg outline outline-1 outline-sky-700 text-gray-600 font-rale hover:outline-gray-600 hover:bg-gray-50 hover:text-black transition-all duration-300">
+                            Volver</a>
+    
+                        {% else %}
+    
+                        <div class="flex flex-col gap-1">
+                            <label class="font-exo text-base font-semibold text-gray-500">{{ form.name.label }}</label>
+                            {{ form.name }}
+                        </div>
+    
+                        <div class="flex flex-col gap-1">
+                            <label class="font-exo text-base font-semibold text-gray-500">{{ form.email.label }}</label>
+                            {{ form.email }}
+                        </div>
+    
+                        <div class="flex flex-col gap-1">
+                            <label class="font-exo text-base font-semibold text-gray-500" for="phone">Teléfono</label>
+                            <input class="text-input" type="tel" id="phone" name="phone" placeholder="963044658" required>
+                        </div>
+    
+                        <div class="flex flex-col gap-1">
+                            <label class="font-exo text-base font-semibold text-gray-500">{{ form.address.label }}</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label class="font-exo text-base font-semibold text-gray-500">{{ form.details.label }}</label>
+                            {{ form.details }}
+                        </div>
+    
+                        <input type="submit" value="Enviar mensaje"
+                            class="mt-14 px-10 py-4 text-center text-lg outline outline-1 outline-gray-400 text-gray-600 font-rale hover:outline-gray-600 hover:bg-sky-800 hover:text-white transition-all duration-300">
+    
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+{% include 'public/base/footer.html' %}
 
 </body>
 {% endblock content %}
