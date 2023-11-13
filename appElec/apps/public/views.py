@@ -50,6 +50,10 @@ class Contact(FormView):
         )
         message.save()
 
+        name = name.replace('Ñ', 'N').replace('ñ', 'n')
+        address = name.replace('Ñ', 'N').replace('ñ', 'n')
+        details = name.replace('Ñ', 'N').replace('ñ', 'n')
+
         payload = {
             "name": name,
             "email": email,
@@ -60,6 +64,6 @@ class Contact(FormView):
 
         payload = json.dumps(payload)
 
-        mqtt_client.publish(settings.MQTT_TOPIC, payload)
+        mqtt_client.publish(settings.MQTT_TOPIC, payload, 1)
 
         return redirect(reverse("public_app:contact") + "?ok")
