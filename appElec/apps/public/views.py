@@ -45,9 +45,21 @@ class Contact(FormView):
         address = form.cleaned_data["address"]
         details = form.cleaned_data["details"]
 
-        message = Menssage(name=name, email=email, phone=phone, address=address, details=details)
+        message = Menssage(
+            name=name, email=email, phone=phone, address=address, details=details
+        )
         message.save()
 
-        mqtt_client.publish(settings.MQTT_TOPIC, "Tienes un nuevo mensaje", 1)
+        payload = {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "address": address,
+            "details": details,
+        }
+
+        payload = json.dumps(payload)
+
+        mqtt_client.publish(settings.MQTT_TOPIC, payload)
 
         return redirect(reverse("public_app:contact") + "?ok")
