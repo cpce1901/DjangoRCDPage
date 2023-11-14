@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 DATABASES = {
     "default": {
@@ -24,10 +24,18 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "media/"
 MEDIA_DIRS = [BASE_DIR / "media/"]
 
-MQTT_SERVER = '146.190.124.66'
+MQTT_SERVER = "146.190.124.66"
 MQTT_PORT = 1883
 MQTT_KEEPALIVE = 60
-MQTT_USER = 'Pc'
-MQTT_PASSWORD = 'Pc'
-MQTT_TOPIC = 'rcdPage/notification'
+MQTT_USER = "Pc"
+MQTT_PASSWORD = "Pc"
+MQTT_TOPIC = "rcdPage/notification"
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
