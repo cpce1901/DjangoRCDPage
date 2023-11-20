@@ -6,26 +6,30 @@
 
 <!-- SEO META -->
 {% block meta %}
-    <meta name="description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-    <meta name="keywords" content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">  
-    
-    <meta property="og:title" content="Electricidad RCD | Electricista a domicilio">
-    <meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:site_name" content="Electricidad RCD">
-    <meta property="og:description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+<meta name="description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+<meta name="keywords"
+    content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="electricidadrcd.cl">
-    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="Electricidad RCD | Electricista a domicilio">
-    <meta name="twitter:description" content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-    <meta name="twitter:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
+<meta property="og:title" content="Electricidad RCD | Electricista a domicilio">
+<meta property="og:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Electricidad RCD">
+<meta property="og:description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="electricidadrcd.cl">
+<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="Electricidad RCD | Electricista a domicilio">
+<meta name="twitter:description"
+    content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
+<meta name="twitter:image" content="{{ request.build_absolute_uri }}media/media/private/logo.png">
 {% endblock meta %}
 
 <!-- Titulo de pagina -->
 {% block title %}
-    <title>Electricista a domicilio | Electricidad RCD</title>
+<title>Electricista a domicilio | Electricidad RCD</title>
 {% endblock title %}
 
 <!-- Contenido de pagina -->
@@ -48,20 +52,34 @@
         <h1 class="font-exo font-semibold text-xl xl:text-4xl text-white leading-snug my-5">Electricista a
             domicilio</h1>
 
-        <div class="flex flex-col md:flex-row md:gap-3">
-            <h4 class="text-xl xl:text-xl font-extralight text-white">Vitacura</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <h4 class="text-xl xl:text-xl font-extralight text-white">Las Condes</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <h4 class="text-xl xl:text-xl font-extralight text-white">Chicureo</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <h4 class="text-xl xl:text-xl font-extralight text-white">La Florida</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <h4 class="text-xl xl:text-xl font-extralight text-white">Pirque</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <h4 class="text-xl xl:text-xl font-extralight text-white">Puente Alto</h4>
-            <p class="hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
-            <p class="text-xl xl:text-xl font-extralight text-white">Toda la Región Metropolitana a tu domicilio</p>
+        <div class="flex flex-col md:flex-row md:gap-5">
+
+            <div class="flex flex-col md:items-center">
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Vitacura</h4>
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Las Condes</h4>
+            </div>
+
+            <p class="self-center hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+
+            <div class="flex flex-col md:items-center">
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Providencia</h4>
+                <h4 class="text-xl xl:text-xl font-extralight text-white">La Florida</h4>
+            </div>
+
+            <p class="self-center hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+
+            <div class="flex flex-col md:items-center">
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Chicureo</h4>
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Pirque</h4>
+            </div>
+
+            <p class="self-center hidden md:block text-xl xl:text-xl font-extralight text-white">-</p>
+
+            <div class="flex flex-col md:items-center">
+                <h4 class="text-xl xl:text-xl font-extralight text-white">Puente Alto</h4>
+                <p class="text-xl xl:text-xl font-extralight text-white">Toda la Región Metropolitana a tu domicilio</p>
+            </div>
+
         </div>
 
 
