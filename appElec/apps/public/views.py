@@ -5,7 +5,6 @@ from django.conf import settings
 from apps.private.models import Logo
 from .form import ContactForm
 from .models import Menssage
-
 import json
 from django.http import JsonResponse
 from appElec.mqtt import client as mqtt_client
@@ -50,9 +49,9 @@ class Contact(FormView):
         )
         message.save()
 
-        name = name.replace('Ñ', 'N').replace('ñ', 'n')
-        address = name.replace('Ñ', 'N').replace('ñ', 'n')
-        details = name.replace('Ñ', 'N').replace('ñ', 'n')
+        name = name.replace("Ñ", "N").replace("ñ", "n")
+        address = name.replace("Ñ", "N").replace("ñ", "n")
+        details = name.replace("Ñ", "N").replace("ñ", "n")
 
         payload = {
             "name": name,
