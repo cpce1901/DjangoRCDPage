@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
 from django.urls import reverse
 from django.conf import settings
-from apps.private.models import Logo
+from apps.private.models import Logo, MobileToken
 from .form import ContactForm
 from .models import Menssage
 import json
@@ -37,7 +37,7 @@ class Contact(FormView):
     success_url = "/thanks/"
 
     def send_message(self, title, body):
-        expo_token = "ExponentPushToken[CXrkmFI8An_f6tcdyydz-9]"
+        expo_token = MobileToken.objects.first()
         message = {"to": expo_token, "title": title, "body": body}
         return r.post("https://exp.host/--/api/v2/push/send", json=message)
     
