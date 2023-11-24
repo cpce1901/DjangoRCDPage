@@ -6,8 +6,7 @@ from apps.private.models import Logo
 from .form import ContactForm
 from .models import Menssage
 import json
-from django.http import JsonResponse
-
+import requests as r
 
 
 # Create your views here.
@@ -37,6 +36,12 @@ class Contact(FormView):
     form_class = ContactForm
     success_url = "/thanks/"
 
+    def send_message(self, title, body):
+        expo_token = "ExponentPushToken[CXrkmFI8An_f6tcdyydz-9]"
+        message = {"to": expo_token, "title": title, "body": body}
+        return r.post("https://exp.host/--/api/v2/push/send", json=message)
+    
+
     def form_valid(self, form):
         name = form.cleaned_data["name"]
         email = form.cleaned_data["email"]
@@ -63,6 +68,9 @@ class Contact(FormView):
 
         payload = json.dumps(payload)
 
-      
+        titulo = "Pagina - Contacto"
+        mensaje = f"Haz recibido un nuevo mensjae en tu pagina web de: {name}"
+
+        self.send_message(titulo, mensaje)
 
         return redirect(reverse("public_app:contact") + "?ok")

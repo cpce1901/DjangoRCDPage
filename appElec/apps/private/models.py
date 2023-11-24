@@ -16,3 +16,9 @@ class Logo(models.Model):
         return f"{self.name}"
 
 
+class MobileToken(models.Model):
+    name = models.CharField("Nombre", max_length=256)
+    token = models.CharField("Nombre", max_length=256)
+
+    def __str__(self):
+        return f"{self.name} - {self.token}"
