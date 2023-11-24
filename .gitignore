@@ -9,3 +9,6 @@ env.bak/
 venv.bak/
 env-elect/
 env-appelecrcd/
+
+migrations/
+.migrations
