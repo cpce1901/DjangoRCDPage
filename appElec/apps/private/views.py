@@ -19,7 +19,7 @@ class MobileTokenList(ListAPIView):
     serializer_class = MobileTokenSerializer
 
     def get_queryset(self):
-        queryset = MobileToken.objects.all().order_by("created")[:10]
+        queryset = MobileToken.objects.all()
         return queryset
 
 

@@ -38,7 +38,7 @@ class Contact(FormView):
 
     def send_message(self, title, body):
         expo_token = MobileToken.objects.first()
-        message = {"to": expo_token, "title": title, "body": body}
+        message = {"to": expo_token.token, "title": title, "body": body}
         return r.post("https://exp.host/--/api/v2/push/send", json=message)
     
 
