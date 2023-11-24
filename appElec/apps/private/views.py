@@ -53,9 +53,14 @@ class MobileTokenView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, *args, **kwargs):
-        instance = MobileToken.objects.get(pk=pk)
-        instance.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        try:
+            instance = MobileToken.objects.get(pk=pk)
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except MobileToken.DoesNotExist:
+            return Response(
+                {"error": "MobileToken not found"}, status=status.HTTP_404_NOT_FOUND
+            )
 
 
 class MessagesView(APIView):
