@@ -37,6 +37,7 @@ class MessagesApi(ListAPIView):
 
 class MessageDetailApi(RetrieveAPIView):
     serializer_class = MessageSerializer
+    queryset = Menssage.objects.all()
 
 
 class MessageAddApi(CreateAPIView):
@@ -49,3 +50,4 @@ class MessageUpdateApi(UpdateAPIView):
 
 class MessageDeleteApi(DestroyAPIView):
     serializer_class = MessageSerializer
+    queryset = Menssage.objects.all()
