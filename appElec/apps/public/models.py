@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Menssage(models.Model):
+class Message(models.Model):
     name = models.CharField("Nombre", max_length=256)
     email = models.EmailField("Email")
     phone = models.IntegerField("Telefono")

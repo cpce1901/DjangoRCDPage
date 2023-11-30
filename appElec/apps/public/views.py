@@ -1,10 +1,9 @@
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
 from django.urls import reverse
-from django.conf import settings
 from apps.private.models import Logo, MobileToken
 from .form import ContactForm
-from .models import Menssage
+from .models import Message
 import json
 import requests as r
 
@@ -49,7 +48,7 @@ class Contact(FormView):
         address = form.cleaned_data["address"]
         details = form.cleaned_data["details"]
 
-        message = Menssage(
+        message = Message(
             name=name, email=email, phone=phone, address=address, details=details
         )
         message.save()

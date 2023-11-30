@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menssage
+from .models import Message
 
 # Register your models here.
 
@@ -11,4 +11,4 @@ class AdminMessage(admin.ModelAdmin):
         "created",
     ]
 
-admin.site.register(Menssage, AdminMessage)
+admin.site.register(Message, AdminMessage)

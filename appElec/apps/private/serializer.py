@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from apps.public.models import Menssage
+from apps.public.models import Message
 from .models import MobileToken
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Menssage
+        model = Message
         fields = '__all__'
 
 class MobileTokenSerializer(serializers.ModelSerializer):
