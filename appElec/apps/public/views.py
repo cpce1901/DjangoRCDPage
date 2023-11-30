@@ -39,7 +39,6 @@ class Contact(FormView):
         expo_token = MobileToken.objects.first()
         message = {"to": expo_token.token, "title": title, "body": body}
         return r.post("https://exp.host/--/api/v2/push/send", json=message)
-    
 
     def form_valid(self, form):
         name = form.cleaned_data["name"]
@@ -69,7 +68,10 @@ class Contact(FormView):
 
         titulo = "Pagina - Contacto"
         mensaje = f"Haz recibido un nuevo mensjae en tu pagina web de: {name}"
-
-        self.send_message(titulo, mensaje)
+        
+        try:
+            self.send_message(titulo, mensaje)
+        except:
+            print("No se ha enviado la notificación")
 
         return redirect(reverse("public_app:contact") + "?ok")
