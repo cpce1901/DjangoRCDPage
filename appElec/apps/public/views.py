@@ -35,6 +35,8 @@ class Contact(FormView):
     form_class = ContactForm
     success_url = "/thanks/"
 
+   
+
     def send_message(self, title, body):
         expo_token = MobileToken.objects.first()
         message = {"to": expo_token.token, "title": title, "body": body}
@@ -68,7 +70,7 @@ class Contact(FormView):
 
         titulo = "Pagina - Contacto"
         mensaje = f"Haz recibido un nuevo mensjae en tu pagina web de: {name}"
-        
+
         try:
             self.send_message(titulo, mensaje)
         except:

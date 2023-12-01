@@ -24,6 +24,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "media/"
 MEDIA_DIRS = [BASE_DIR / "media/"]
 
-
+RECAPTCHA_SITE_KEY = "6LdQWSIpAAAAAKueLnjWX_x66ZgvOkTFcSpCKcYM"
+RECAPTCHA_SECRET_KEY = "6LdQWSIpAAAAAMwHfTiAGhZXohDP7YwJYI-wzBDA"
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 
 

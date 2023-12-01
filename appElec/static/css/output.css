@@ -641,10 +641,6 @@ video {
   margin-top: 2.5rem;
 }
 
-.mt-14{
-  margin-top: 3.5rem;
-}
-
 .mt-16{
   margin-top: 4rem;
 }
@@ -667,6 +663,14 @@ video {
 
 .mt-\[0\.3rem\]{
   margin-top: 0.3rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
+}
+
+.mt-2{
+  margin-top: 0.5rem;
 }
 
 .block{
@@ -1183,10 +1187,6 @@ video {
     width: 25%;
   }
 
-  .md\:w-80{
-    width: 20rem;
-  }
-
   .md\:w-auto{
     width: auto;
   }
@@ -1206,6 +1206,10 @@ video {
 
   .md\:content-end{
     align-content: flex-end;
+  }
+
+  .md\:items-start{
+    align-items: flex-start;
   }
 
   .md\:items-center{
