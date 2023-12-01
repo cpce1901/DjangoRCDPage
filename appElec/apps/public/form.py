@@ -70,7 +70,10 @@ class ContactForm(forms.Form):
         ),
     )
 
+
     recaptcha = ReCaptchaField(
+        public_key=settings.RECAPTCHA_SITE_KEY,
+        private_key=settings.RECAPTCHA_SECRET_KEY,
         widget=ReCaptchaV2Checkbox(),
         error_messages={"required": settings.RECAPTCHA_ERROR_MSG["required"]},
     )

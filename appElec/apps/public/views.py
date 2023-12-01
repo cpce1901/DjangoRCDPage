@@ -7,8 +7,6 @@ from .models import Message
 import json
 import requests as r
 from django.conf import settings
-
-# Import the reCAPTCHA package
 from django_recaptcha.client import RecaptchaResponse
 
 
@@ -45,21 +43,10 @@ class Contact(FormView):
         return r.post("https://exp.host/--/api/v2/push/send", json=message)
 
     def form_valid(self, form):
-      
-        recaptcha_response = self.request.POST.get("g-recaptcha-response")
-        recaptcha_secret_key = settings.RECAPTCHA_SITE_KEY
-        recaptcha_url = "https://www.google.com/recaptcha/api/siteverify"
+        recaptcha_response = self.request.POST.get("g-recaptcha-response", "")
+        recaptcha_result = RecaptchaResponse(recaptcha_response)
 
-        recaptcha_data = {
-            "secret": recaptcha_secret_key,
-            "response": recaptcha_response,
-        }
-
-        is_valid = r.post(recaptcha_url, data=recaptcha_data).json()
-
-        print(is_valid)
-
-        if is_valid:
+        if recaptcha_result.is_valid:
             name = form.cleaned_data["name"]
             email = form.cleaned_data["email"]
             phone = self.request.POST.get("phone")
@@ -94,5 +81,3 @@ class Contact(FormView):
                 print("No se ha enviado la notificación")
 
             return redirect(reverse("public_app:contact") + "?ok")
-
-        
