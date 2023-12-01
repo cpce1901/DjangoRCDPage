@@ -1,5 +1,9 @@
 from django import forms
+from django.core.validators import RegexValidator
 from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
+from django.conf import settings
+import re
 
 
 class ContactForm(forms.Form):
@@ -27,6 +31,20 @@ class ContactForm(forms.Form):
             }
         ),
     )
+
+    phone = forms.CharField(
+        min_length=6,
+        label="Teléfono",
+        max_length=10,
+        widget=forms.TextInput(
+            attrs={
+                "id": "phone",
+                "placeholder": "Ingresa tu número de teléfono",
+                "class": "text-input",
+            }
+        ),
+    )
+
     address = forms.CharField(
         label="Dirección",
         max_length=100,
@@ -52,4 +70,19 @@ class ContactForm(forms.Form):
         ),
     )
 
-    recaptcha = ReCaptchaField()
+    recaptcha = ReCaptchaField(
+        widget=ReCaptchaV2Checkbox(),
+        error_messages={"required": settings.RECAPTCHA_ERROR_MSG["required"]},
+    )
+
+    def clean_phone(self):
+        numero = self.cleaned_data["phone"]
+        # Verificar si la entrada consiste solo en dígitos
+        if not numero.isdigit():
+            raise forms.ValidationError("Ingrese solo números...")
+
+        # Verificar la longitud del número
+        if len(numero) < 6 or len(numero) > 10:
+            raise forms.ValidationError("El número debe tener entre 6 y 10 dígitos.")
+
+        return numero

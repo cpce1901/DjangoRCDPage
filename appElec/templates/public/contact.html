@@ -100,8 +100,9 @@
                         </div>
     
                         <div class="flex flex-col gap-1">
-                            <label class="font-exo text-base font-semibold text-gray-500" for="phone">Teléfono</label>
-                            <input class="text-input" type="tel" id="phone" name="phone" placeholder="963044658" required>
+                            <label class="font-exo text-base font-semibold text-gray-500">{{ form.phone.label }}</label>
+                            {{ form.phone }}
+                            <small class=" text-base font-semibold text-red-600">{{ form.phone.errors }}</small>
                         </div>
     
                         <div class="flex flex-col gap-1">
@@ -115,7 +116,10 @@
 
                         <div class="flex flex-col gap-1 mt-4 items-center md:items-start">
                             {{ form.recaptcha }}
+                            <small class="text-base font-semibold text-red-600">{{ form.recaptcha.errors }}</small>
                         </div>
+
+                        
 
                         <input type="submit" value="Enviar mensaje"
                             class="mt-5 px-10 py-4 text-center text-lg outline outline-1 outline-gray-400 text-gray-600 font-rale hover:outline-gray-600 hover:bg-sky-800 hover:text-white transition-all duration-300">

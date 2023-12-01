@@ -28,4 +28,6 @@ RECAPTCHA_SITE_KEY = "6LdQWSIpAAAAAKueLnjWX_x66ZgvOkTFcSpCKcYM"
 RECAPTCHA_SECRET_KEY = "6LdQWSIpAAAAAMwHfTiAGhZXohDP7YwJYI-wzBDA"
 SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 
-
+RECAPTCHA_ERROR_MSG = {
+    "required": "Porfavor completa la verificación...",
+}
