@@ -47,7 +47,7 @@ class Contact(FormView):
     def form_valid(self, form):
       
         recaptcha_response = self.request.POST.get("g-recaptcha-response")
-        recaptcha_secret_key = settings.RECAPTCHA_SECRET_KEY
+        recaptcha_secret_key = settings.RECAPTCHA_SITE_KEY
         recaptcha_url = "https://www.google.com/recaptcha/api/siteverify"
 
         recaptcha_data = {
@@ -56,6 +56,8 @@ class Contact(FormView):
         }
 
         is_valid = r.post(recaptcha_url, data=recaptcha_data).json()
+
+        print(is_valid)
 
         if is_valid:
             name = form.cleaned_data["name"]
