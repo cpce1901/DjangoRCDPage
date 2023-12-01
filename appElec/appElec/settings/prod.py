@@ -36,3 +36,7 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 
 RECAPTCHA_SITE_KEY = "6LdQWSIpAAAAAKueLnjWX_x66ZgvOkTFcSpCKcYM"
 RECAPTCHA_SECRET_KEY = "6LdQWSIpAAAAAMwHfTiAGhZXohDP7YwJYI-wzBDA"
+
+RECAPTCHA_ERROR_MSG = {
+    "required": "Porfavor completa la verificación...",
+}
