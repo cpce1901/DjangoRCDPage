@@ -46,7 +46,7 @@ class MobileTokenDetail(APIView):
 class MessagesApiView(APIView):
     def get(self, request, format=None):
         snippets = Message.objects.all()
-        serializer = MobileTokenSerializer(snippets, many=True)
+        serializer = MessageSerializer(snippets, many=True)
         return Response(serializer.data)
 
     def post(self, request):
