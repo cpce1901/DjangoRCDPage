@@ -50,10 +50,9 @@ class Contact(FormView):
             name = form.cleaned_data["name"]
             email = form.cleaned_data["email"]
             code_phone = form.cleaned_data["code"]
-            phone = self.request.POST.get("phone")
+            phone = form.cleaned_data["phone"]
             address = form.cleaned_data["address"]
             details = form.cleaned_data["details"]
-
             phone_completed = str(code_phone) + str(phone)
 
             message = Message(

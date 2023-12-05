@@ -1,9 +1,7 @@
 from django import forms
-from django.core.validators import RegexValidator
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 from django.conf import settings
-import re
 
 
 class ContactForm(forms.Form):
@@ -83,7 +81,6 @@ class ContactForm(forms.Form):
         ),
     )
 
-
     recaptcha = ReCaptchaField(
         public_key=settings.RECAPTCHA_SITE_KEY,
         private_key=settings.RECAPTCHA_SECRET_KEY,
@@ -93,15 +90,18 @@ class ContactForm(forms.Form):
 
     def clean_phone(self):
         numero = self.cleaned_data["phone"]
+
         # Verificar si la entrada consiste solo en dígitos
         if not numero.isdigit():
             raise forms.ValidationError("Ingrese solo números...")
 
         return numero
-    
 
     def clean_code(self):
         code = self.cleaned_data["code"]
 
         if "+" not in code[0]:
             raise forms.ValidationError("Ingresa un código de país valido... ")
+        elif not code[1:-1].isdigit():
+            raise forms.ValidationError("Ingrese los números del código de su país... ")
+        return code
