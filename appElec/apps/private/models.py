@@ -21,8 +21,8 @@ class Logo(models.Model):
 
 
 class MobileToken(models.Model):
-    name = models.CharField("Nombre", max_length=256)
-    token = models.CharField("Token", max_length=256)
+    name = models.CharField("Nombre", max_length=255)
+    token = models.CharField("Token", max_length=255, unique=True)
 
     class Meta:
         verbose_name = "Token de telefono"

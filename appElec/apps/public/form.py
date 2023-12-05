@@ -32,15 +32,28 @@ class ContactForm(forms.Form):
         ),
     )
 
+    code = forms.CharField(
+        min_length=3,
+        label="Codigo",
+        max_length=4,
+        widget=forms.TextInput(
+            attrs={
+                "id": "code",
+                "placeholder": "+56",
+                "class": "w-20 text-input",
+            }
+        ),
+    )
+
     phone = forms.CharField(
         min_length=6,
         label="Teléfono",
-        max_length=10,
+        max_length=9,
         widget=forms.TextInput(
             attrs={
                 "id": "phone",
                 "placeholder": "Ingresa tu número de teléfono",
-                "class": "text-input",
+                "class": "grow text-input",
             }
         ),
     )
@@ -84,8 +97,11 @@ class ContactForm(forms.Form):
         if not numero.isdigit():
             raise forms.ValidationError("Ingrese solo números...")
 
-        # Verificar la longitud del número
-        if len(numero) < 6 or len(numero) > 10:
-            raise forms.ValidationError("El número debe tener entre 6 y 10 dígitos.")
-
         return numero
+    
+
+    def clean_code(self):
+        code = self.cleaned_data["code"]
+
+        if "+" not in code[0]:
+            raise forms.ValidationError("Ingresa un código de país valido... ")

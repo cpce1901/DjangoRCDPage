@@ -6,7 +6,7 @@ from django.db import models
 class Message(models.Model):
     name = models.CharField("Nombre", max_length=256)
     email = models.EmailField("Email")
-    phone = models.IntegerField("Telefono")
+    phone = models.CharField("Telefono", max_length=13)
     address = models.CharField("Dirección", max_length=256)
     details = models.TextField("Detalles")
     created = models.DateField(auto_now_add=True)
