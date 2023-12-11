@@ -6,7 +6,6 @@ from .form import ContactForm
 from .models import Message
 import json
 import requests as r
-from django.conf import settings
 from django_recaptcha.client import RecaptchaResponse
 
 

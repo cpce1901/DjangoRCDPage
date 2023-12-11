@@ -24,9 +24,9 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "media/"
 MEDIA_DIRS = [BASE_DIR / "media/"]
 
-RECAPTCHA_SITE_KEY = "6LfIbyIpAAAAADeni1j4akCYYGVJ18SAyOJghHUK"
-RECAPTCHA_SECRET_KEY = "6LfIbyIpAAAAAPoKadzsZxJagLCfb_mBi0n2d31S"
-SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+RECAPTCHA_PUBLIC_KEY = "6LeQAy0pAAAAADrKe9cNNLEo_r4G6Ppv2OtbVCBU"
+RECAPTCHA_PRIVATE_KEY = "6LeQAy0pAAAAAHP4TdTmWuaCwuUmQ_ClrPdoJnyN"
+
 
 RECAPTCHA_ERROR_MSG = {
     "required": "Porfavor completa la verificación...",
