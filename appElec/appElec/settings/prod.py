@@ -34,9 +34,8 @@ STATIC_ROOT = BASE_DIR / 'static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
-RECAPTCHA_SITE_KEY = "6LctbCIpAAAAAGxLmedZenPgBTbY9Ech0ANYGMMn"
-RECAPTCHA_SECRET_KEY = "6LctbCIpAAAAAAVWtH-tnIbEy1NsxTnHqSEKJYSL"
-SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+RECAPTCHA_PUBLIC_KEY = "6LctbCIpAAAAAGxLmedZenPgBTbY9Ech0ANYGMMn"
+RECAPTCHA_PRIVATE_KEY = "6LctbCIpAAAAAAVWtH-tnIbEy1NsxTnHqSEKJYSL"
 
 RECAPTCHA_ERROR_MSG = {
     "required": "Porfavor completa la verificación...",
