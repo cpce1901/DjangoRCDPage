@@ -7,9 +7,9 @@ class Logo(models.Model):
     def change_name(instance, filename):
         ext = filename.split(".")[-1]
         filename = f"logo.{ext}"
-        return os.path.join("media/private", filename)
+        return os.path.join("private/logo/", filename)
 
-    name = models.CharField("Logo", max_length=128, unique=True)
+    name = models.CharField("Logo", max_length=128, unique=True, default="logo")
     image = models.ImageField(upload_to=change_name)
 
     class Meta:
@@ -77,39 +77,34 @@ class Material(models.Model):
 class Budget(models.Model):
     code = models.CharField("Código", max_length=8, unique=True)
     owner = models.CharField("Cliente", max_length=128)
-    materials = models.ManyToManyField(
-        Material, through="BudgetMaterial", verbose_name="Materiales"
-    )
 
     class Meta:
         verbose_name = "Presupuesto"
         verbose_name_plural = "Presupuestos"
 
-    def total_price(self):
-        total = 0
-        for budget_material in self.budgetmaterial_set.all():
-            total += budget_material.total_price()
-        return total
-
-    total_price.short_description = "Precio total"
-
     def __str__(self):
-        return f"Código: {self.code}, Cliente: {self.owner}, Precio total: {self.total_price()}"
+        return f"Código: {self.code}, Cliente: {self.owner}"
 
 
-class BudgetMaterial(models.Model):
-    budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
-    material = models.ForeignKey(Material, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField("Cantidad", default=1)
+class MaterialMount(models.Model):
+    mount = models.PositiveIntegerField("Cantidad")
+    material = models.ManyToManyField(Material, verbose_name="Materiales")
 
     class Meta:
-        verbose_name = "Grupo de Material"
-        verbose_name_plural = "Grupo de Materiales"
-
-    def total_price(self):
-        return self.quantity * self.material.price
-    
-    total_price.short_description = "Precio total"
+        verbose_name = "Cantidad de material"
+        verbose_name_plural = "Cantidad de materiales"
 
     def __str__(self):
-        return f"{self.quantity} {self.material.description} - Precio total: {self.total_price()}"
+        return f"Cantidad: {self.mount}, Material: {self.material}"
+
+
+class MaterialGroup(models.Model):
+    budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
+    materials = models.ManyToManyField(MaterialMount, verbose_name="Materiales")
+
+    class Meta:
+        verbose_name = "Grupo de material"
+        verbose_name_plural = "Grupo de materiales"
+
+    def __str__(self):
+        return f"Código: {self.budget}, Cliente: {self.materials}"

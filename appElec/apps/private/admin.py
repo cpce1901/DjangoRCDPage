@@ -1,31 +1,19 @@
 from django.contrib import admin
-from .models import Logo, MobileToken, Tag, Material, Budget, BudgetMaterial, Provider
+from .models import Logo, MobileToken, Tag, Material, Provider, Budget, MaterialGroup, MaterialMount 
 
 
 class BudgetAdmin(admin.ModelAdmin):
-    list_display = ["code", "owner", "total_price"]
+    list_display = ["id", "code", "owner"]
     list_filter = ["owner", "code"]
 
-
-class BudgetMaterialAdmin(admin.ModelAdmin):
-    list_display = ["code_budget", "name_budget", "material", "quantity", "total_price"]
-    list_filter = [
-        "budget__owner",
-        "budget__code",
-    ]
-
-    def code_budget(self, obj):
-        return obj.budget.code
-
-    def name_budget(self, obj):
-        return obj.budget.owner
-
-    code_budget.short_description = "Presupuesto"
-    name_budget.short_description = "Cliente"
+class LogoAdmin(admin.ModelAdmin):
+    list_display = ["id", "name", "image"]
+    readonly_fields = ["name",]
+    
 
 
 # Register your models here.
-admin.site.register(Logo)
+admin.site.register(Logo, LogoAdmin)
 admin.site.register(MobileToken)
 
 
@@ -33,5 +21,6 @@ admin.site.register(Material)
 admin.site.register(Tag)
 admin.site.register(Provider)
 
-admin.site.register(BudgetMaterial, BudgetMaterialAdmin)
 admin.site.register(Budget, BudgetAdmin)
+admin.site.register(MaterialGroup)
+admin.site.register(MaterialMount)

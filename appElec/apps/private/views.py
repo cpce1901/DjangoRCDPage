@@ -1,10 +1,13 @@
-from apps.public.models import Message
+from typing import Any
+from django import http
+from django.views.generic import TemplateView
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.shortcuts import get_object_or_404
+from apps.public.models import Message
 from .serializer import MessageSerializer, MobileTokenSerializer
-from .models import MobileToken
+from .models import MobileToken, Budget, MaterialGroup
 
 # Create your views here.
 
@@ -67,3 +70,26 @@ class MessagesDetail(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class BudgetList(TemplateView):
+    template_name = "private/BadgetList.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(BudgetList, self).get_context_data(**kwargs)
+        context["budgets"] = Budget.objects.all()
+        return context
+
+
+class BudgetDetail(TemplateView):
+    template_name = "private/BadgetDetail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(BudgetDetail, self).get_context_data(**kwargs)
+        pk = self.kwargs.get("pk")
+        context["budget"] = Budget.objects.filter(id=pk).first()
+        context["MaterialsGroup"] = MaterialGroup.objects.all()
+        return context
+
+
+
