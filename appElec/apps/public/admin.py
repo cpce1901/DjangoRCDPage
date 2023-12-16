@@ -5,9 +5,10 @@ from .models import Message
 
 
 class AdminMessage(admin.ModelAdmin):
-    list_display = ["name", "address", "phone", "email", "details", "created"]
+    list_display = ["name", "address", "phone", "email", "details", "readed", "created"]
     search_fields = ["name"]
     list_filter = [
+        "readed",
         "created",
     ]
 
