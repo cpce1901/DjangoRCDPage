@@ -16,7 +16,7 @@ import requests
 
 # Create your views here.
 class Contact(FormView):
-    template_name = "public/contact.html"
+    template_name = "contact/contact.html"
     form_class = ContactForm
     success_url = "/thanks/"
 

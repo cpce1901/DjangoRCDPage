@@ -12,7 +12,7 @@
     content="Electricista, Electricista Las Condes, Electricista Chicureo, Electricista Vitacura, Electricista a domicilio">
 
 <meta property="og:title" content="Electricidad RCD | Electricista a domicilio">
-<meta property="og:image" content="{{ request.build_absolute_uri }}media/private/logo/logo.png">
+<meta property="og:image" content="{{ request.build_absolute_uri }}media/public/logo/logo.png">
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
 <meta property="og:site_name" content="Electricidad RCD">
 <meta property="og:description"
@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="Electricidad RCD | Electricista a domicilio">
 <meta name="twitter:description"
     content="Servicio de electricista a domicilio, soluciones en instalaciones y cortes eléctricos. Disponibles 24 hrs. en toda la Región Metropolitana.">
-<meta name="twitter:image" content="{{ request.build_absolute_uri }}media/private/logo/logo.png">
+<meta name="twitter:image" content="{{ request.build_absolute_uri }}media/public/logo/logo.png">
 {% endblock meta %}
 
 <!-- Titulo de pagina -->
@@ -90,7 +90,7 @@
                 63044658</span>
         </p>
 
-        <a href="{% url 'messagesContact_app:contact' %}" class="uppercase text-white lg:text-xl mb-7 mt-10">Contáctanos</a>
+        <a href="{% url 'contact_app:contact' %}" class="uppercase text-white lg:text-xl mb-7 mt-10">Contáctanos</a>
     </section>
 
     <!-- Seccion servicios -->

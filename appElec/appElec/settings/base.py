@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     "rest_framework",
     'django_recaptcha',
     "apps.public",
-    "apps.messagesContact",
+    "apps.contact",
     "apps.private",
 ]
 

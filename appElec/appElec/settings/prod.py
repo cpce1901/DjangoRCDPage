@@ -31,7 +31,7 @@ REST_FRAMEWORK = {
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static/'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 RECAPTCHA_PUBLIC_KEY = "6LeQAy0pAAAAADrKe9cNNLEo_r4G6Ppv2OtbVCBU"
