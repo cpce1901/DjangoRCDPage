@@ -14,6 +14,7 @@ sitemaps = {
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.public.urls")),
+    path("", include("apps.messagesContact.urls")),
     path("", include("apps.private.urls")),
     # Bots.txt
     path("robots.txt", robots_txt),

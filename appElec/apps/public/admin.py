@@ -1,15 +1,13 @@
 from django.contrib import admin
-from .models import Message
-
-# Register your models here.
+from .models import Logo
 
 
-class AdminMessage(admin.ModelAdmin):
-    list_display = ["name", "address", "phone", "email", "details", "readed", "created"]
-    search_fields = ["name"]
-    list_filter = [
-        "readed",
-        "created",
+class LogoAdmin(admin.ModelAdmin):
+    list_display = ["id", "name", "image"]
+    readonly_fields = [
+        "name",
     ]
 
-admin.site.register(Message, AdminMessage)
+
+# Register your models here.
+admin.site.register(Logo, LogoAdmin)

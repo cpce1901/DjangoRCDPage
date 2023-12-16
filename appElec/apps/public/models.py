@@ -1,16 +1,20 @@
 from django.db import models
+import os
+
 
 # Create your models here.
+class Logo(models.Model):
+    def change_name(instance, filename):
+        ext = filename.split(".")[-1]
+        filename = f"logo.{ext}"
+        return os.path.join("public/logo/", filename)
 
+    name = models.CharField("Logo", max_length=128, unique=True, default="logo")
+    image = models.ImageField(upload_to=change_name)
 
-class Message(models.Model):
-    name = models.CharField("Nombre", max_length=256)
-    email = models.EmailField("Email")
-    phone = models.CharField("Telefono", max_length=13)
-    address = models.CharField("Dirección", max_length=256)
-    details = models.TextField("Detalles")
-    readed = models.BooleanField("Leido")
-    created = models.DateField(auto_now_add=True)
+    class Meta:
+        verbose_name = "Logo"
+        verbose_name_plural = "Logos"
 
     def __str__(self):
-        return f"{self.name} - {self.details}"
+        return f"{self.name}"
