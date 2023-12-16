@@ -1,4 +1,5 @@
 from pathlib import Path
+from import_export.formats.base_formats import XLSX, JSON, CSV
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -14,10 +15,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.sitemaps",
     "rest_framework",
-    'django_recaptcha',
+    "django_recaptcha",
+    "import_export",
     "apps.public",
     "apps.contact",
     "apps.private",
+    "apps.budget",
 ]
 
 MIDDLEWARE = [
@@ -78,3 +81,6 @@ USE_TZ = True
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+IMPORT_EXPORT_FORMATS = [JSON, CSV, XLSX]

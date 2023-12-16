@@ -16,6 +16,7 @@ urlpatterns = [
     path("", include("apps.public.urls")),
     path("", include("apps.contact.urls")),
     path("", include("apps.private.urls")),
+    path("", include("apps.budget.urls")),
     # Bots.txt
     path("robots.txt", robots_txt),
     # Sitemaps

@@ -69,7 +69,7 @@ class Contact(FormView):
             except:
                 print("No se ha enviado la notificación")
 
-            return redirect(reverse("public_app:contact") + "?ok")
+            return redirect(reverse("contact_app:contact") + "?ok")
 
 
 class MessagesApiView(APIView):
