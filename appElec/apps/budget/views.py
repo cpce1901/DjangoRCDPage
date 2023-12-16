@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from .models import Budget, MaterialGroup
+from .models import Budget
 
 
 # Create your views here.
@@ -19,5 +19,4 @@ class BudgetDetail(TemplateView):
         context = super(BudgetDetail, self).get_context_data(**kwargs)
         pk = self.kwargs.get("pk")
         context["budget"] = Budget.objects.filter(id=pk).first()
-        context["MaterialsGroup"] = MaterialGroup.objects.all()
         return context
