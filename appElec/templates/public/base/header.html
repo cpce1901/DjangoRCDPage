@@ -37,7 +37,7 @@
                             <a href="#" title="Navegar a servicios"
                                 class="{% if request.path == '/servicios/' %}md:font-bold font-medium{% else %}md:font-light hover:font-medium font-light{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800  md:text-white  transition-all duration-300">Servicios</a>
                             <a href="{% url 'contact_app:contact' %}" title="Navegar a contacto"
-                                class="{% if request.path == '/contacto/' %}md:font-bold font-medium{% else %}font-light hover:font-medium font-light{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800  md:text-white  transition-all duration-300">Contacto</a>
+                                class="{% if request.path == '/contacto/' %}md:font-bold font-medium{% else %} hover:font-medium font-light{% endif %} tracking-wide cursor-pointer px-3 py-2 rounded  text-lg text-sky-800  md:text-white  transition-all duration-300">Contacto</a>
                         </div>
 
                         <!-- Boton -->

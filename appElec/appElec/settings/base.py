@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = "django-insecure-4^!5kej1frc5kv#t%p6c_=zu#3(xo=il#ok&_cqh%xepbhium&"
 
 
-INSTALLED_APPS = [
+BASE_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -14,16 +14,24 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
-    "drf_yasg",
-    "rest_framework",
-    "django_recaptcha",
-    "import_export",
+]
+
+LOCAL_APPS = [
     "apps.public",
     "apps.contact",
     "apps.private",
     "apps.materials",
     "apps.budget",
 ]
+
+THIRD_APPS = [
+    "drf_yasg",
+    "rest_framework",
+    "django_recaptcha",
+    "import_export",
+]
+
+INSTALLED_APPS = BASE_APPS + LOCAL_APPS +THIRD_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
