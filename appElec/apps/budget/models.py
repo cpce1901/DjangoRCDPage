@@ -13,7 +13,6 @@ class Clients(models.Model):
         return self.name
 
 
-
 class Items(models.Model):
     mount = models.PositiveIntegerField("Cantidad")
     material = models.ForeignKey(
@@ -38,11 +37,14 @@ class BudgetItems(models.Model):
     class Meta:
         unique_together = ("budget", "item")
 
+
 # Presupuesto = Budget
 class Budgets(models.Model):
     code = models.CharField("Código", max_length=8, unique=True)
     owner = models.ForeignKey(Clients, on_delete=models.CASCADE, verbose_name="Cliente")
-    items = models.ManyToManyField(Items, through=BudgetItems,verbose_name="Items", blank=True)
+    items = models.ManyToManyField(
+        Items, through=BudgetItems, verbose_name="Items", blank=True
+    )
 
     class Meta:
         verbose_name = "Presupuesto"

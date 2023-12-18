@@ -1,5 +1,17 @@
 from rest_framework import serializers
-from ...models import Materials
+from .models import Materials, Providers, Tags
+
+
+class ProvidersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Providers
+        fields = "__all__"
+
+
+class TagsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tags
+        fields = "__all__"
 
 
 class MaterialsSerializer(serializers.ModelSerializer):
@@ -21,5 +33,5 @@ class MaterialsSerializer(serializers.ModelSerializer):
             "description": instance.description,
             "unit": instance.get_unit_display(),
             "price": instance.price,
-            "provider": instance.provider.name
+            "provider": instance.provider.name,
         }

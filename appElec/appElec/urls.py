@@ -31,15 +31,21 @@ urlpatterns = [
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+    # routes
+    path("", include("apps.budget.routers")),
+    path("", include("apps.materials.routers")),
+    path("", include("apps.contact.routers")),
+
     # Site
     path("admin/", admin.site.urls),
     path("", include("apps.public.urls")),
     path("", include("apps.contact.urls")),
     path("", include("apps.private.urls")),
-    path("", include("apps.materials.urls")),
-    path("", include("apps.budget.urls")),
+
     # Bots.txt
     path("robots.txt", robots_txt),
+
     # Sitemaps
     path(
         "sitemap.xml",
@@ -47,8 +53,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    # routes
-    path("", include("apps.materials.api.routes")),
+    
 ]
 
 if settings.DEBUG:
