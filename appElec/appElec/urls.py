@@ -26,16 +26,7 @@ sitemaps = {
     "static": StaticViewSitemap,
 }
 
-urlpatterns = [
-    # Documentacion API
-    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-
-    # routes
-    path("", include("apps.budget.routers")),
-    path("", include("apps.materials.routers")),
-    path("", include("apps.contact.routers")),
+urlpatterns = [  
 
     # Site
     path("admin/", admin.site.urls),
@@ -53,6 +44,16 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+
+    # Documentacion API
+    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+    # routes
+    path("", include("apps.budget.routers")),
+    path("", include("apps.materials.routers")),
+    path("", include("apps.contact.routers")),
     
 ]
 
