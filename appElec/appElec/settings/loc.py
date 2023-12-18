@@ -31,3 +31,13 @@ RECAPTCHA_PRIVATE_KEY = "6LeQAy0pAAAAAHP4TdTmWuaCwuUmQ_ClrPdoJnyN"
 RECAPTCHA_ERROR_MSG = {
     "required": "Porfavor completa la verificación...",
 }
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+  
+}
