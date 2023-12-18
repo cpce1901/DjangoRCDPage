@@ -3,19 +3,40 @@ from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import handler404
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 from .sitemap import StaticViewSitemap
 from .views import robots_txt, error_404_view
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Documentation API",
+      default_version='v1',
+      description="Test description",
+      terms_of_service="https://www.google.com/policies/terms/",
+      contact=openapi.Contact(email="contact@snippets.local"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 sitemaps = {
     "static": StaticViewSitemap,
 }
 
 urlpatterns = [
+    # Documentacion API
+    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    # Site
     path("admin/", admin.site.urls),
     path("", include("apps.public.urls")),
     path("", include("apps.contact.urls")),
     path("", include("apps.private.urls")),
+    path("", include("apps.materials.urls")),
     path("", include("apps.budget.urls")),
     # Bots.txt
     path("robots.txt", robots_txt),
@@ -26,6 +47,8 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    # routes
+    path("", include("apps.materials.api.routes")),
 ]
 
 if settings.DEBUG:
