@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Message
+from .models import Message, MobileToken
 
 # Register your models here.
 
@@ -13,3 +13,4 @@ class AdminMessage(admin.ModelAdmin):
     ]
 
 admin.site.register(Message, AdminMessage)
+admin.site.register(MobileToken)

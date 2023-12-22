@@ -1,16 +1,11 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import FormView
 from django_recaptcha.client import RecaptchaResponse
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from apps.private.models import MobileToken
 from .form import ContactForm
-from .models import Message
+from .models import Message, MobileToken
 import json
 import requests
-
 
 
 # Create your views here.
@@ -20,9 +15,20 @@ class Contact(FormView):
     success_url = "/thanks/"
 
     def send_message(self, title, body):
-        expo_token = MobileToken.objects.first()
-        message = {"to": expo_token.token, "title": title, "body": body}
-        return requests.post("https://exp.host/--/api/v2/push/send", json=message)
+        token_users = MobileToken.objects.all()
+        token_users = [token.token for token in token_users]
+        headers = {
+            "host": "exp.host",
+            "accept": "application/json",
+            "accept-encoding": "gzip, deflate",
+            "Content-Type": "application/json",
+        }
+
+        message = {"to": token_users, "title": title, "body": body}
+
+        return requests.post(
+            "https://exp.host/--/api/v2/push/send", headers=headers, json=message
+        )
 
     def form_valid(self, form):
         recaptcha_response = self.request.POST.get("g-recaptcha-response", "")
@@ -69,5 +75,3 @@ class Contact(FormView):
                 print("No se ha enviado la notificación")
 
             return redirect(reverse("contact_app:contact") + "?ok")
-
-
