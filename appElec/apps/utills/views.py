@@ -34,7 +34,7 @@ class CapacitorApiView(APIView):
 
         return capacitancia_delta * 1e6
 
-    def get(self, request, kw, fp, fp_need *args, **kwargs):
+    def get(self, request, kw, fp, fp_need, *args, **kwargs):
         factor_potencia_actual = fp
         factor_potencia_deseado = fp_need
         potencia_activa = kw
