@@ -8,10 +8,11 @@ class CapacitorApiView(APIView):
     def calcular_condensador(
         self,
         factor_potencia_actual,
+        factor_potencia_deseado,
         potencia_activa,
     ):
         potencia_activa = potencia_activa * 1000
-        factor_potencia_objetivo = 0.97
+        factor_potencia_objetivo = factor_potencia_deseado
 
         angulo_desfase_actual = math.degrees(math.acos(factor_potencia_actual))
         angulo_desfase_objetivo = math.degrees(math.acos(factor_potencia_objetivo))
@@ -33,12 +34,14 @@ class CapacitorApiView(APIView):
 
         return capacitancia_delta * 1e6
 
-    def get(self, request, kw, fp, *args, **kwargs):
+    def get(self, request, kw, fp, fp_need *args, **kwargs):
         factor_potencia_actual = fp
+        factor_potencia_deseado = fp_need
         potencia_activa = kw
 
         carga = self.calcular_condensador(
             factor_potencia_actual,
+            factor_potencia_deseado,
             potencia_activa,
         )
 
