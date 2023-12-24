@@ -12,5 +12,10 @@ class AdminMessage(admin.ModelAdmin):
         "created",
     ]
 
+
+class AdminMobileToken(admin.ModelAdmin):
+    list_display = ["id", "name", "token"]
+
+
 admin.site.register(Message, AdminMessage)
-admin.site.register(MobileToken)
+admin.site.register(MobileToken, AdminMobileToken)
