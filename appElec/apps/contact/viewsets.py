@@ -13,7 +13,7 @@ class MessageViewSet(GenericViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    def retrieve(self, request, pk):
+    def retrieve(self, request, pk=None):
         item = self.get_object()
         serializer = self.get_serializer(item)
         return Response(serializer.data)
@@ -29,6 +29,11 @@ class MessageViewSet(GenericViewSet):
                 status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def destroy(self, request, pk=None):
+        item = self.get_object()
+        item.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class MobileTokenViewSet(GenericViewSet):
@@ -47,7 +52,7 @@ class MobileTokenViewSet(GenericViewSet):
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def retrieve(self, request, pk):
+    def retrieve(self, request, pk=None):
         item = self.get_object()
         serializer = self.get_serializer(item)
         return Response(serializer.data)
@@ -64,7 +69,7 @@ class MobileTokenViewSet(GenericViewSet):
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def destroy(self, request, pk):
+    def destroy(self, request, pk=None):
         item = self.get_object()
         item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
